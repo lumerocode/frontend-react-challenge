@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   1. LOCAL FONT DECLARATIONS (BR SONOMA)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'BR Sonoma';
+  src: url('./assets/fonts/BRSonoma-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Sonoma';
+  src: url('./assets/fonts/BRSonoma-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Sonoma';
+  src: url('./assets/fonts/BRSonoma-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Sonoma';
+  src: url('./assets/fonts/BRSonoma-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   2. DESIGN TOKENS CONFIGURATION (TAILWIND V4 @THEME)
+   ========================================================================== */
+@theme {
+  /* Default font family assignment */
+  --font-sans: 'BR Sonoma', 'Inter', sans-serif;
+
+  /* Brand color palette */
+  --color-rimac-red: #FF1C44;                  
+}
+
+/* ==========================================================================
+   3. GLOBAL RESET AND BASE RULES
+   ========================================================================== */
+
+#root {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
