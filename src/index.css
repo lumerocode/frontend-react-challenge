@@ -49,15 +49,27 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  /* Letter Spacing */
+  --letter-spacing-xs: -0.6px;  
+  --letter-spacing-sm: 0.2px;  
+  --letter-spacing-md: 0.4px;   
+
 /* Brand Color Palette */
-  --color-rimac-red: #FF1C44;         
+  --color-rimac-red: #FF1C44;     
+  --color-rimac-red-dark: #EC0B35;    
   --color-rimac-dark: #0A051E;         
   --color-rimac-black: #03050F;        
-  --color-rimac-navy: #141938;         
-  --color-rimac-blue: #4F4FFF;         
+  --color-rimac-navy: #141938;  
+  --color-rimac-navy-light: #2B304E;
+  --color-rimac-blue-dark: #1A5CCF;       
+  --color-rimac-blue: #4F4FFF;        
+  --color-rimac-gray-dark: #5E6488; 
   --color-rimac-gray: #7981B2;         
-  --color-rimac-border: #D7DBF5;       
-  --color-rimac-green: #7DF0BA;        
+  --color-rimac-border: #D7DBF5; 
+  --color-rimac-border-hover: #CCD1EE;
+  --color-rimac-border-light: #E1E5FC;      
+  --color-rimac-green: #7DF0BA;      
+  --color-rimac-light-blue-bg: #EDF0FF;  
   --color-rimac-light-bg: #F8F9FF;     
   --color-white: #FFFFFF;
 
@@ -108,6 +120,10 @@
 #root {
   box-sizing: border-box;
 }
+
+.tracking-md { letter-spacing: var(--letter-spacing-md); }
+.tracking-sm { letter-spacing: var(--letter-spacing-sm); }
+.tracking-xs { letter-spacing: var(--letter-spacing-xs); }
 
 body {
   margin: 0;

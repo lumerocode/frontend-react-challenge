@@ -1,11 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/AppRoutes';
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-rimac-lightBg">
-      <p className="text-rimac-red font-sans font-bold text-xl tracking-wide">
-        ¡Mensaje de prueba!
-      </p>
-    </div>
-  )
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App
