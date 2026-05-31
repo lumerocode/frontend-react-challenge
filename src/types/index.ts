@@ -29,6 +29,7 @@ export interface SelectInputGroupProps {
   options: Option[];
   selectProps?: Omit<SelectProps, 'label' | 'options'>;
   inputProps?: Omit<InputProps, 'label'>;
+  error?: string;
   className?: string;
 }
 

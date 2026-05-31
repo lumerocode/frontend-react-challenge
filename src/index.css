@@ -54,23 +54,32 @@
   --letter-spacing-sm: 0.2px;  
   --letter-spacing-md: 0.4px;   
 
-/* Brand Color Palette */
+  /* Brand Color Palette */
   --color-rimac-red: #FF1C44;     
-  --color-rimac-red-dark: #EC0B35;    
+  --color-rimac-red-dark: #EC0B35;  
+
   --color-rimac-dark: #0A051E;         
-  --color-rimac-black: #03050F;        
+  --color-rimac-black: #03050F; 
+
   --color-rimac-navy: #141938;  
   --color-rimac-navy-light: #2B304E;
+
   --color-rimac-blue-dark: #1A5CCF;       
   --color-rimac-blue: #4F4FFF;        
+
   --color-rimac-gray-dark: #5E6488; 
-  --color-rimac-gray: #7981B2;         
+  --color-rimac-gray: #7981B2;    
+
   --color-rimac-border: #D7DBF5; 
   --color-rimac-border-hover: #CCD1EE;
-  --color-rimac-border-light: #E1E5FC;      
+  --color-rimac-border-light: #E1E5FC;    
+    
   --color-rimac-green: #7DF0BA;      
+
   --color-rimac-light-blue-bg: #EDF0FF;  
+  --color-rimac-light-gray-bg: #EDEFFC;
   --color-rimac-light-bg: #F8F9FF;     
+  --color-rimac-light-tint-bg: #FAFBFF;
   --color-white: #FFFFFF;
 
   /* Linear Gradients */
@@ -81,6 +90,9 @@
   --shadow-rimac-md: 0px 1px 24px 0px #AEACF340;
 
   /* Custom Font Sizes & Line Heights Mapping */
+  --text-xxs: 10px;
+  --text-xxs--line-height: 16px;
+
   --text-xs: 12px;
   --text-xs--line-height: 18px;
 
@@ -109,8 +121,11 @@
   --text-5xl--line-height: 48px;
 
   /* Layout Limits and Spacing System */
-  --max-width-desktop-container: 1300px;
+  --max-width-desktop-container: 1168px;
   --spacing-mobile-padding: 24px;
+
+  /* Grid system default gutter */
+  --rbr-grid-gutter: 16px;
 }
 
 /* ==========================================================================
@@ -121,6 +136,7 @@
   box-sizing: border-box;
 }
 
+/* Tracking utility definitions using CSS variables from theme */
 .tracking-md { letter-spacing: var(--letter-spacing-md); }
 .tracking-sm { letter-spacing: var(--letter-spacing-sm); }
 .tracking-xs { letter-spacing: var(--letter-spacing-xs); }
@@ -133,3 +149,84 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ==========================================================================
+   4. GRID SYSTEM UTILITIES (HYBRID MOBILE-FIRST)
+   ========================================================================== */
+
+/* 📱 Base: 4 columns for mobile layouts */
+.rbr-rimac-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--rbr-grid-gutter);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 💻 Desktop override: 12 columns above 768px */
+@media (min-width: 768px) {
+  :root {
+    --rbr-grid-gutter: 32px; /* Gutter expands dynamically for desktop layout spacing */
+  }
+
+  .rbr-rimac-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--rbr-grid-gutter);
+  }
+}
+
+/* --- MOBILE SPECIFIC POSITIONING RULES (4 Columns Base) --- */
+.rbr-mob-col-start-1 { grid-column-start: 1; }
+.rbr-mob-col-start-3 { grid-column-start: 3; }
+.rbr-mob-col-end-5   { grid-column-end: 5; }
+.rbr-mob-col-span-full { grid-column: span 4 / span 4; }
+
+/* --- DESKTOP SPECIFIC POSITIONING RULES (12 Columns) --- */
+/* Column Span */
+.rbr-col-span-1  { grid-column: span 1 / span 1; }
+.rbr-col-span-2  { grid-column: span 2 / span 2; }
+.rbr-col-span-3  { grid-column: span 3 / span 3; }
+.rbr-col-span-4  { grid-column: span 4 / span 4; }
+.rbr-col-span-5  { grid-column: span 5 / span 5; }
+.rbr-col-span-6  { grid-column: span 6 / span 6; }
+.rbr-col-span-7  { grid-column: span 7 / span 7; }
+.rbr-col-span-8  { grid-column: span 8 / span 8; }
+.rbr-col-span-9  { grid-column: span 9 / span 9; }
+.rbr-col-span-10 { grid-column: span 10 / span 10; }
+.rbr-col-span-11 { grid-column: span 11 / span 11; }
+.rbr-col-span-12 { grid-column: span 12 / span 12; }
+
+/* Column Start */
+.rbr-col-start-1  { grid-column-start: 1; }
+.rbr-col-start-2  { grid-column-start: 2; }
+.rbr-col-start-3  { grid-column-start: 3; }
+.rbr-col-start-4  { grid-column-start: 4; }
+.rbr-col-start-5  { grid-column-start: 5; }
+.rbr-col-start-6  { grid-column-start: 6; }
+.rbr-col-start-7  { grid-column-start: 7; }
+.rbr-col-start-8  { grid-column-start: 8; }
+.rbr-col-start-9  { grid-column-start: 9; }
+.rbr-col-start-10 { grid-column-start: 10; }
+.rbr-col-start-11 { grid-column-start: 11; }
+.rbr-col-start-12 { grid-column-start: 12; }
+
+/* Column End */
+.rbr-col-end-1  { grid-column-end: 1; }
+.rbr-col-end-2  { grid-column-end: 2; }
+.rbr-col-end-3  { grid-column-end: 3; }
+.rbr-col-end-4  { grid-column-end: 4; }
+.rbr-col-end-5  { grid-column-end: 5; }
+.rbr-col-end-6  { grid-column-end: 6; } 
+.rbr-col-end-7  { grid-column-end: 7; }
+.rbr-col-end-8  { grid-column-end: 8; }
+.rbr-col-end-9  { grid-column-end: 9; }
+.rbr-col-end-10 { grid-column-end: 10; }
+.rbr-col-end-11 { grid-column-end: 11; }
+.rbr-col-end-12 { grid-column-end: 12; }
+.rbr-col-end-13 { grid-column-end: 13; }
+
+/* --- MOBILE SPECIFIC POSITIONING RULES (4 Columns Base) --- */
+.rbr-mob-col-span-1 { grid-column: span 1 / span 1; }
+.rbr-mob-col-span-2 { grid-column: span 2 / span 2; }
+.rbr-mob-col-span-3 { grid-column: span 3 / span 3; }
+.rbr-mob-col-span-4 { grid-column: span 4 / span 4; }

@@ -8,6 +8,7 @@ export const SelectInputGroup = ({
   options,
   selectProps,
   inputProps,
+  error,
   className = '',
 }: SelectInputGroupProps) => {
   const inputId = useId();
@@ -22,6 +23,7 @@ export const SelectInputGroup = ({
   const { max: maxLength } = getRules(documentType);
   const isValid = validateDocument(inputValue, documentType);
   const showError = touched && inputValue.length > 0 && !isValid;
+  const validationMessage = error ?? (showError ? getDocumentErrorMessage() : '');
 
   useEffect(() => {
     if (inputPropsValue && typeof inputPropsValue === 'string') {
@@ -76,17 +78,17 @@ export const SelectInputGroup = ({
             value={inputValue}
             onChange={handleInputChange}
             maxLength={maxLength}
-            className={`w-full h-12 bg-white text-rimac-black tracking-sm border border-rimac-gray-dark rounded-r-md py-2.25 px-2.75 text-base leading-7 outline-none transition-all duration-200 focus:border-rimac-dark focus:ring-1 focus:ring-rimac-blue-dark ${
-              showError ? 'border-2 border-rimac-red-dark' : ''
+            className={`w-full h-12 bg-white text-rimac-black tracking-sm border rounded-r-md py-2.5 px-3 text-base leading-7 outline-none transition-all duration-200 focus:border-rimac-dark focus:ring-1 focus:ring-rimac-blue-dark ${
+              validationMessage ? 'border-2 border-rimac-red-dark border-rimac-red-dark' : 'border border-rimac-gray-dark'
             }`}
             {...restInputProps}
           />
         </div>
       </div>
 
-      {showError && (
+      {validationMessage && (
         <p className="mt-1 text-xs font-medium text-rimac-red-dark">
-          {getDocumentErrorMessage()}
+          {validationMessage}
         </p>
       )}
     </div>

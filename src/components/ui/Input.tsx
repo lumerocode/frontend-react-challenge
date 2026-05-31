@@ -59,7 +59,7 @@ export const Input = ({
         onChange={isTel ? handleTelChange : onChange}
         className={`w-full h-12 bg-white text-rimac-black border tracking-sm ${
           validationMessage ? 'border-rimac-red-dark' : 'border-rimac-gray-dark'
-        } rounded-md py-2.25 px-2.75 text-base outline-none transition-all duration-200 focus:border-rimac-dark focus:ring-1 focus:ring-rimac-blue-dark ${
+        } rounded-md py-2.5 px-3 text-base leading-6 outline-none transition-all duration-200 focus:border-rimac-dark focus:ring-1 focus:ring-rimac-blue-dark ${
           validationMessage ? 'border-2 focus:border-rimac-red-dark' : 'focus:border-rimac-dark'
         }`}
         {...restProps}

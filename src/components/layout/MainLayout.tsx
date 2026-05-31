@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import logo from '../assets/img/brand/Logo.svg';
-import phoneIcon from '../assets/img/icons/icon-phone.svg';
+import logo from '../../assets/img/brand/Logo.svg';
+import phoneIcon from '../../assets/img/icons/icon-phone.svg';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface MainLayoutProps {
 
 export const MainLayout = ({ children }: MainLayoutProps) => (
   <div className="min-h-screen bg-rimac-light-bg text-rimac-dark">
-    <div className="px-(--spacing-mobile-padding) md:px-0">
+    <div className="px-(--spacing-mobile-padding) md:px-0 fixed w-full z-10 bg-rimac-light-bg">
       <header className="mx-auto flex max-w-desktop-container items-center justify-between py-3 md:py-4 md:px-6">
         <div className="flex items-center gap-3">
           <img src={logo} alt="RIMAC" className="w-auto" />
@@ -24,7 +24,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => (
       </header>
     </div>
 
-    <main className="mx-auto w-full max-w-desktop-container px-(--spacing-mobile-padding) md:px-0">
+    <main className="mx-auto w-full max-w-desktop-container px-(--spacing-mobile-padding) md:px-0 pt-15 md:pt-17">
       {children}
     </main>
   </div>
